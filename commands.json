@@ -1,0 +1,23 @@
+{
+  "linux": [
+    {
+      "command": "sudo apt-get update",
+      "description": "Update package list"
+    },
+    {
+      "command": "sudo apt-get upgrade -y",
+      "description": "Upgrade installed packages"
+    }
+  ],
+  "darwin": [
+    {
+      "command": "brew update",
+      "description": "Update Homebrew"
+    },
+    {
+      "command": "brew upgrade",
+      "description": "Upgrade Homebrew packages"
+    }
+  ]
+}
+

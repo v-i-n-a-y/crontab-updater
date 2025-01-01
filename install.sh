@@ -1,11 +1,14 @@
 #!/bin/bash
 #
-# macOS crontab Updater
-#
-# The family doesn't know how to use computers...... :(
 
 
-CRON_JOB="0 2 1 * * /bin/bash -c 'brew update && brew upgrade -y && softwareupdate -ia' > ~/update_log.txt 2>&1"
+python3 generate.py
+mkdir -p $HOME/.local/bin
+cp update.sh $HOME/.local/bin
+chmod +x $HOME/.local/bin/update.sh
+touch $HOME/update.log
+
+CRON_JOB="0 2 1 * * $HOME/.local/bin/update.sh"
 
 crontab -l > ~/crontab_backup.txt 2>/dev/null
 
