@@ -13,11 +13,11 @@
       "description": "Snap refresh all applications"
     },
     {
-      "command": "sudo apt-get dist-upgrade -y"
-      "description": "Perform full upgrade"
+      "command": "sudo apt-get dist-upgrade -y",
+			"description": "Perform full upgrade"
     },
     {
-      "command": "sudo apt-get autoremove -y"
+      "command": "sudo apt-get autoremove -y",
       "description": "Remove unused packages"
     }
   ],
@@ -38,7 +38,6 @@
       "command": "mas upgrade",
       "description": "Upgrade all Mac App Store applications"
     },
-    ,
     {
       "command": "sudo rm -rf /Library/Caches/*",
       "description": "Clear system caches"

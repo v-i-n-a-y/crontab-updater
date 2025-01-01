@@ -28,6 +28,16 @@ def header(system: str):
         file.write("    cat $TMPFILE >> $LOGFILE\n")
         file.write("    rm $TMPFILE\n")
         file.write("}\n\n")
+        file.write("notify(){\n")
+        file.write("    TITLE=\"VW Updater\"\n")
+        file.write("    MSSG=\"Update completed\"\n")
+        match system:
+            case "linux":
+                file.write('    notify-send "$TITLE" "$MSSG"\n')
+            case "darwin":
+                file.write('osascript -e "display notification \"$MESSAGE\" with title \"$TITLE\"\n')
+        file.write("}\n\n")
+
 
 
 def append_commands(system: str, commands: dict):
@@ -36,6 +46,7 @@ def append_commands(system: str, commands: dict):
             user_input = input(f"Do you want to include '{command['description']}: {command['command']}'? (y/n)").strip().lower()
             if user_input == "y":
                 file.write(f"run \"{command['command']}\"\n")
+        file.write("notify()")
 
 def main():
     print("Generating update.sh")
