@@ -14,6 +14,7 @@ def header(system: str):
         file.write("TMPFILE='/tmp/update_temp.log'\n")
         file.write("run () {\n")
         file.write("    command=$1\n")
+        file.write("    echo '$now'\n")
         file.write("    echo 'Running $command' >> $LOGFILE\n")
         file.write("    $command >> $TMPFILE 2>&1\n")
         file.write("    if grep -q 'password' $TMPFILE; then\n")
