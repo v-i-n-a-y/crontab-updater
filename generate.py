@@ -97,5 +97,8 @@ def main():
     os.system(f"cat {OUTPUT_FILE}")
 
 if __name__ == "__main__":
-    main()
-
+    print("Warning: THis will not install the script...\"run install.sh\"")
+    print("Press Enter to continue or any other key followed by Enter to exit...")
+    key = input()
+    if key == '': 
+        main()
