@@ -52,7 +52,7 @@ def header(system: str):
             case "linux":
                 file.write('    notify-send "$TITLE" "$MSSG"\n')
             case "darwin":
-                file.write('osascript -e "display notification \"$MESSAGE\" with title \"$TITLE\"\n')
+                file.write('osascript -e "display notification \"$MESSAGE\" with title \"$TITLE\"\"\n')
         file.write("    # Send message to Telegram\n")
         file.write("    response=$(curl -s -w \"%{http_code}\" -o /dev/null -X POST \"https://api.telegram.org/bot$BOT_TOKEN/sendMessage\" \\\n")
         file.write("        -d chat_id=\"$CHAT_ID\" -d text=\"$MESSAGE\")\n")
